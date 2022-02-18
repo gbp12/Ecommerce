@@ -36,7 +36,7 @@ export const reducer = (state = [], action) => {
 
 	return state
 }
-
+// Arrow function que me permite añadir elementos a mi state
 export const Main = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
