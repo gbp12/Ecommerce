@@ -4,8 +4,8 @@ import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { Provider } from "react-redux"
-import { reducer } from "./pages/Main"
 import { createStore } from "redux"
+import { reducer } from "./components/Buttons"
 
 const store = createStore(reducer)
 
