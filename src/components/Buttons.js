@@ -1,184 +1,168 @@
 import { useDispatch, useSelector } from "react-redux"
+import { Img, ButtonProduct } from "./Styles"
 
 const initialState = {
-	entities: [],
-}
-const objeto1 = {
-	a: "hola",
-}
-const objeto2 = {
-	a: "adios",
-}
-const objeto3 = {
-	a: "sayonara",
+	productos: [
+		{
+			nombre: "papa",
+			precio: 10,
+			cantidad: 1,
+			img: "https://www.cocinayvino.com/wp-content/uploads/2017/07/16194971_ml-e1499974317365.jpg",
+		},
+		{
+			nombre: "tomate",
+			precio: 10,
+			cantidad: 1,
+			img: "https://www.lovemysalad.com/sites/default/files/styles/image_530x397/public/tomates_-_vladimir_morozov.jpg?itok=XMg8FUqr",
+		},
+		{
+			nombre: "esparrago",
+			precio: 10,
+			cantidad: 1,
+			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX8xpO_L979dWkjQf_Kf2Gz0tfXsRMBSmLoadptjoeMY_NuC2RTzdOrpglKxzVn2oD9-k&usqp=CAU",
+		},
+	],
+	carro: [],
+	esVisible: false,
 }
 
-export const reducer = (state = initialState, action) => {
+export const Reducer = (state = initialState, action) => {
+	const producto = action.payload
 	switch (action.type) {
 		case "add":
-			return {
-				...state,
-				entities: state.entities.concat({ ...action.payload }),
+			if (state.carro.find((x) => x.nombre === producto.nombre)) {
+				const newCarro = state.carro.map((x) =>
+					x.nombre === producto.nombre
+						? {
+								...x,
+								cantidad: x.cantidad + 1,
+						  }
+						: x
+				)
+
+				return { ...state, carro: newCarro }
+			} else {
+				return {
+					...state,
+					carro: state.carro.concat({ ...producto }),
+				}
 			}
+
 		case "remove":
-			var newEntities = state.entities.filter(function (x) {
-				return x.a !== action.payload
+			const newCarro = state.carro.filter(function (x) {
+				return x.nombre !== producto
 			})
+
 			return {
 				...state,
-				entities: newEntities,
+				carro: newCarro,
 			}
 
-		default:
-			break
+		case "visibleChange":
+			return {
+				...state,
+				esVisible: !state.esVisible,
+			}
 	}
 
 	return state
 }
 
-function Buttons() {
+export const ButtonPapa = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
 	console.log(state)
 
 	return (
 		<div>
+			<Img src={initialState.productos[0].img} />
 			<div>
-				<button
+				<ButtonProduct
 					onClick={() => {
-						dispatch({ type: "add", payload: objeto1 })
+						dispatch({ type: "add", payload: state.productos[0] })
 					}}>
-					añadir objeto1
-				</button>
-				<button
+					comprar papas
+				</ButtonProduct>
+				<ButtonProduct
 					onClick={() => {
-						dispatch({ type: "add", payload: objeto2 })
+						dispatch({ type: "remove", payload: "papa" })
 					}}>
-					añadir objeto2
-				</button>
-				<button
-					onClick={() => {
-						dispatch({ type: "add", payload: objeto3 })
-					}}>
-					añadir objeto3
-				</button>
-			</div>
-
-			<div>
-				<button
-					onClick={() => {
-						dispatch({ type: "remove", payload: objeto1.a })
-					}}>
-					eliminar objeto1
-				</button>
-				<button
-					onClick={() => {
-						dispatch({ type: "remove", payload: objeto2.a })
-					}}>
-					eliminar objeto2
-				</button>
-				<button
-					onClick={() => {
-						dispatch({ type: "remove", payload: objeto3.a })
-					}}>
-					eliminar objeto3
-				</button>
+					delete papas
+				</ButtonProduct>
 			</div>
 		</div>
 	)
 }
 
-export default Buttons
-
-/*
-import { useDispatch, useSelector } from "react-redux"
-
-const zanahoria = {
-	nombre: "zanahoria",
-	precio: "1",
-}
-const calabaza = {
-	nombre: "calabaza",
-	precio: "2",
-}
-
-const papa = {
-	nombre: "zanahoria",
-	precio: "3",
-}
-
-const initialState = {
-	entities: [],
-}
-//funcion reducer para añadir/eliminar elementos  a mi lista
-export const reducer = (state = initialState, action) => {
-	switch (action.type) {
-		case "añadir":
-			return {
-				...state,
-				carro: state.entities.concat({ ...action.payload }),
-			}
-
-		default:
-			break
-	}
-
-	return state
-}
-// Arrow function que me permite añadir elementos a mi state
-export const Main = () => {
+export const ButtonTomate = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
 	console.log(state)
+
 	return (
 		<div>
-			<div>
-				<button
-					onClick={() => {
-						dispatch({ type: "añadir", payload: papa })
-					}}>
-					añadir papa
-				</button>
-
-				<button
-					onClick={() => {
-						dispatch({ type: "añadir", payload: zanahoria })
-					}}>
-					añadir zanahoria
-				</button>
-
-				<button
-					onClick={() => {
-						dispatch({ type: "añadir", payload: calabaza })
-					}}>
-					añadir calabaza
-				</button>
-			</div>
+			<Img src={initialState.productos[1].img} />
 
 			<div>
-				<button
+				<ButtonProduct
 					onClick={() => {
-						dispatch({ type: "eliminar", payload: "papa" })
+						dispatch({ type: "add", payload: state.productos[1] })
 					}}>
-					eliminar papa
-				</button>
-
-				<button
+					comprar tomates
+				</ButtonProduct>
+				<ButtonProduct
 					onClick={() => {
-						dispatch({ type: "eliminar", payload: "zanahoria" })
+						dispatch({ type: "remove", payload: "tomate" })
 					}}>
-					eliminar zanahoria
-				</button>
-
-				<button
-					onClick={() => {
-						dispatch({ type: "eliminar", payload: "calabaza" })
-					}}>
-					eliminar calabaza
-				</button>
+					delete tomates
+				</ButtonProduct>
 			</div>
-			<p>{state}</p>
 		</div>
 	)
 }
-*/
+
+export const ButtonEsparrago = () => {
+	const dispatch = useDispatch()
+	const state = useSelector((x) => x)
+	console.log(state)
+
+	return (
+		<div>
+			<Img src={initialState.productos[2].img} />
+			<div>
+				<ButtonProduct
+					onClick={() => {
+						dispatch({ type: "add", payload: state.productos[2] })
+					}}>
+					comprar esparragos
+				</ButtonProduct>
+
+				<ButtonProduct
+					onClick={() => {
+						dispatch({ type: "remove", payload: "esparrago" })
+					}}>
+					delete esparragos
+				</ButtonProduct>
+			</div>
+		</div>
+	)
+}
+
+export const ButtonLista = () => {
+	const state = useSelector((x) => x)
+	const dispatch = useDispatch()
+
+	const Element = () => {
+		return (
+			<div>
+				{state.carro.map((x) => (
+					<li key={Math.random()}>
+						{x.nombre}
+						{x.cantidad}
+					</li>
+				))}
+			</div>
+		)
+	}
+	return <div>{state.esVisible ? <Element /> : <h1>false</h1>}</div>
+}
