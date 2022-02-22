@@ -18,6 +18,10 @@ export const StyledProducts = styled.div`
 
 export const Img = styled.img`
 	width: 200px;
+	height: 150px;
+	margin-top: 10%;
+	display: flex;
+	align-items: center;
 `
 
 export const ButtonProduct = styled.button`
@@ -36,4 +40,17 @@ export const ButtonCarrito = styled.button`
 	border-radius: 5px;
 	cursor: pointer;
 	height: 30px;
+	:hover {
+		color: #e9725a;
+		background-color: #fff;
+	}
+`
+
+export const StyledMain = styled.div`
+	display: flex;
+	flex-direction: column;
+`
+
+export const StyledLista = styled.div`
+	text-align: center;
 `

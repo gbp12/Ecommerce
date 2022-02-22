@@ -1,29 +1,30 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Img, ButtonProduct } from "./Styles"
+import { Img, ButtonProduct, StyledLista } from "./Styles"
 
 const initialState = {
 	productos: [
 		{
 			nombre: "papa",
-			precio: 10,
+			precio: 4,
 			cantidad: 1,
 			img: "https://www.cocinayvino.com/wp-content/uploads/2017/07/16194971_ml-e1499974317365.jpg",
 		},
 		{
 			nombre: "tomate",
-			precio: 10,
+			precio: 9,
 			cantidad: 1,
 			img: "https://www.lovemysalad.com/sites/default/files/styles/image_530x397/public/tomates_-_vladimir_morozov.jpg?itok=XMg8FUqr",
 		},
 		{
 			nombre: "esparrago",
-			precio: 10,
+			precio: 13,
 			cantidad: 1,
 			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX8xpO_L979dWkjQf_Kf2Gz0tfXsRMBSmLoadptjoeMY_NuC2RTzdOrpglKxzVn2oD9-k&usqp=CAU",
 		},
 	],
 	carro: [],
 	esVisible: false,
+	contadorProductos: 0,
 }
 
 export const Reducer = (state = initialState, action) => {
@@ -40,22 +41,30 @@ export const Reducer = (state = initialState, action) => {
 						: x
 				)
 
-				return { ...state, carro: newCarro }
+				return { ...state, carro: newCarro, contadorProductos: state.contadorProductos + 1 }
 			} else {
 				return {
 					...state,
 					carro: state.carro.concat({ ...producto }),
+					contadorProductos: state.contadorProductos + 1,
 				}
 			}
 
 		case "remove":
+			var restante = 0
+
 			const newCarro = state.carro.filter(function (x) {
+				if (x.nombre === producto) {
+					restante += x.cantidad
+				}
 				return x.nombre !== producto
 			})
+			var newContador = state.contadorProductos - restante
 
 			return {
 				...state,
 				carro: newCarro,
+				contadorProductos: newContador,
 			}
 
 		case "visibleChange":
@@ -97,7 +106,6 @@ export const ButtonPapa = () => {
 export const ButtonTomate = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
-	console.log(state)
 
 	return (
 		<div>
@@ -124,7 +132,6 @@ export const ButtonTomate = () => {
 export const ButtonEsparrago = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
-	console.log(state)
 
 	return (
 		<div>
@@ -150,19 +157,18 @@ export const ButtonEsparrago = () => {
 
 export const ButtonLista = () => {
 	const state = useSelector((x) => x)
-	const dispatch = useDispatch()
 
 	const Element = () => {
 		return (
 			<div>
 				{state.carro.map((x) => (
-					<li key={Math.random()}>
-						{x.nombre}
+					<StyledLista key={Math.random()}>
 						{x.cantidad}
-					</li>
+						{x.nombre}(s)
+					</StyledLista>
 				))}
 			</div>
 		)
 	}
-	return <div>{state.esVisible ? <Element /> : <h1>false</h1>}</div>
+	return <div>{state.esVisible ? <Element /> : null}</div>
 }
