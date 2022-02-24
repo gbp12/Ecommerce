@@ -5,15 +5,20 @@ export const StyledHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-right: 10px;
-	padding-left: 10px;
+	height: 63px;
+	width: 100%;
+	position: fixed;
 `
 
-export const StyledProducts = styled.div`
+export const StyledSection = styled.div`
 	display: flex;
 	justify-content: space-around;
 	height: 30vh;
-	align-items: center;
+	padding-top: 5%;
+
+	@media only screen and (max-width: 600px) {
+		padding-top: 20%;
+	}
 `
 
 export const Img = styled.img`
@@ -25,12 +30,29 @@ export const Img = styled.img`
 `
 
 export const ButtonProduct = styled.button`
+	cursor: pointer;
 	background-color: #0a3e;
 	color: #fff;
-	padding: 10px, 20px;
+	border: none;
+	width: 80px;
+	border-radius: 5px;
+	border: 1px solid #0a3e;
+	:hover {
+		color: #0a3e;
+		background-color: #fff;
+	}
+`
+
+export const ButtonDelete = styled.button`
+	cursor: pointer;
 	border: none;
 	border-radius: 5px;
-	cursor: pointer;
+	border: 1px solid #0a3e;
+	background-color: #fff;
+	:hover {
+		color: #fff;
+		background-color: #0a3e;
+	}
 `
 
 export const ButtonCarrito = styled.button`
@@ -39,7 +61,9 @@ export const ButtonCarrito = styled.button`
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	height: 30px;
+	height: 35px;
+	width: 110px;
+	margin-right: 10px;
 	:hover {
 		color: #e9725a;
 		background-color: #fff;
@@ -48,9 +72,35 @@ export const ButtonCarrito = styled.button`
 
 export const StyledMain = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 `
 
-export const StyledLista = styled.div`
-	text-align: center;
+export const StyledLi = styled.div`
+	background-color: aliceblue;
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+	padding: 5px 10px 5px 15px;
+	border: solid 1px #eee;
+	box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+	:hover {
+		background-color: #fff;
+	}
+`
+
+export const H3 = styled.h3`
+	margin-right: 20px;
+`
+
+export const DivLista = styled.div`
+	position: fixed;
+	right: 0px;
+	top: 63px;
+`
+
+export const DivProduct = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 `

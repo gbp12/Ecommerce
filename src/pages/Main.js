@@ -1,16 +1,13 @@
 import React from "react"
 import { Header } from "../components/Header"
-import Products from "../components/Products"
-import { ButtonLista } from "../components/Buttons"
-import { StyledMain } from "../components/Styles"
+import { Section } from "../components/Section"
+import { ButtonLista } from "../components/Lista"
 const Main = () => {
 	return (
 		<div>
 			<Header />
-			<StyledMain>
-				<Products />
-				<ButtonLista />
-			</StyledMain>
+			<ButtonLista />
+			<Section />
 		</div>
 	)
 }

@@ -1,15 +1,17 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+import { BubbleAlert } from "./Bubble"
 
 import { StyledHeader, ButtonCarrito } from "./Styles"
 export const Header = () => {
 	const dispatch = useDispatch()
-	const state = useSelector((x) => x)
 	return (
 		<StyledHeader>
-			<h3>Logo</h3>
+			<h3>Shop</h3>
 
-			<ButtonCarrito onClick={() => dispatch({ type: "visibleChange" })}>Ver Carrito ({state.contadorProductos}) </ButtonCarrito>
+			<ButtonCarrito onClick={() => dispatch({ type: "visibleChange" })}>
+				Carrito (<BubbleAlert />)
+			</ButtonCarrito>
 		</StyledHeader>
 	)
 }
