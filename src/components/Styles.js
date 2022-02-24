@@ -15,10 +15,6 @@ export const StyledSection = styled.div`
 	justify-content: space-around;
 	height: 30vh;
 	padding-top: 5%;
-
-	@media only screen and (max-width: 600px) {
-		padding-top: 20%;
-	}
 `
 
 export const Img = styled.img`
@@ -26,9 +22,13 @@ export const Img = styled.img`
 	height: 150px;
 	display: flex;
 	align-items: center;
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 800px) {
 		width: 100px;
 		height: 75px;
+	}
+	@media only screen and (max-width: 400px) {
+		width: 60px;
+		height: 50px;
 	}
 `
 
@@ -43,6 +43,10 @@ export const ButtonProduct = styled.button`
 	:hover {
 		color: #0a3e;
 		background-color: #fff;
+	}
+	@media only screen and (max-width: 400px) {
+		width: 60px;
+		font-size: 10px;
 	}
 `
 
@@ -71,11 +75,6 @@ export const ButtonCarrito = styled.button`
 		color: #e9725a;
 		background-color: #fff;
 	}
-`
-
-export const StyledMain = styled.div`
-	display: flex;
-	flex-direction: row;
 `
 
 export const StyledLi = styled.div`
@@ -114,10 +113,13 @@ export const DivFila = styled.div`
 `
 
 export const H1 = styled.h1`
+	width: auto;
 	text-align: center;
 	margin-top: 60px;
 	margin-bottom: -40px;
-	background-color: aliceblue;
+	background-color: #d1e2ff;
+	padding: 10px;
 	@media only screen and (max-width: 700px) {
+		font-size: larger;
 	}
 `
