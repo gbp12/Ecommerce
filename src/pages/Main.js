@@ -8,6 +8,7 @@ const Main = () => {
 			<Header />
 			<ButtonLista />
 			<Section />
+			
 		</div>
 	)
 }

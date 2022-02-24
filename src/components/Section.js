@@ -1,24 +1,42 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { DivProduct, ButtonProduct, Img, StyledSection } from "./Styles"
+import { H1, DivProduct, ButtonProduct, Img, StyledSection, DivFila } from "./Styles"
 
 export const Section = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
 	return (
-		<StyledSection>
-			{state.productos.map((x) => (
-				<DivProduct key={Math.random()}>
-					<Img src={x.img} />
+		<DivFila>
+			<H1>Verduras</H1>
+			<StyledSection>
+				{state.verduras.map((x) => (
+					<DivProduct key={Math.random()}>
+						<Img src={x.img} />
 
-					<ButtonProduct
-						onClick={() => {
-							dispatch({ type: "add", payload: x })
-						}}>
-						comprar {x.nombre}
-					</ButtonProduct>
-				</DivProduct>
-			))}
-		</StyledSection>
+						<ButtonProduct
+							onClick={() => {
+								dispatch({ type: "add", payload: x })
+							}}>
+							comprar {x.nombre}
+						</ButtonProduct>
+					</DivProduct>
+				))}
+			</StyledSection>
+			<H1>Frutas</H1>
+			<StyledSection>
+				{state.frutas.map((x) => (
+					<DivProduct key={Math.random()}>
+						<Img src={x.img} />
+
+						<ButtonProduct
+							onClick={() => {
+								dispatch({ type: "add", payload: x })
+							}}>
+							comprar {x.nombre}
+						</ButtonProduct>
+					</DivProduct>
+				))}
+			</StyledSection>
+		</DivFila>
 	)
 }

@@ -1,30 +1,7 @@
+import { ListaVerduras, ListaFrutas } from "./Productos"
 const initialState = {
-	productos: [
-		{
-			nombre: "papa",
-			cantidad: 1,
-			precio: 4,
-			img: "https://www.cocinayvino.com/wp-content/uploads/2017/07/16194971_ml-e1499974317365.jpg",
-		},
-		{
-			nombre: "tomate",
-			cantidad: 1,
-			precio: 9,
-			img: "https://www.lovemysalad.com/sites/default/files/styles/image_530x397/public/tomates_-_vladimir_morozov.jpg?itok=XMg8FUqr",
-		},
-		{
-			nombre: "esparrago",
-			cantidad: 1,
-			precio: 13,
-			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX8xpO_L979dWkjQf_Kf2Gz0tfXsRMBSmLoadptjoeMY_NuC2RTzdOrpglKxzVn2oD9-k&usqp=CAU",
-		},
-		{
-			nombre: "alcachofa",
-			cantidad: 1,
-			precio: 23,
-			img: "https://lacosecha.pe/wp-content/uploads/2020/11/alcachofa.jpg",
-		},
-	],
+	verduras: ListaVerduras,
+	frutas: ListaFrutas,
 	carro: [],
 	esVisible: false,
 	contadorProductos: 0,
@@ -87,7 +64,8 @@ export const contadorReducer = (state = {}, action) => {
 }
 export const reducer = (state = initialState, action) => {
 	return {
-		productos: initialState.productos,
+		verduras: initialState.verduras,
+		frutas: initialState.frutas,
 		carro: carroReducer(state.carro, action),
 		esVisible: visibleReducer(state.esVisible, action),
 		contadorProductos: contadorReducer(state, action),

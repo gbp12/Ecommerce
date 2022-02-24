@@ -24,9 +24,12 @@ export const StyledSection = styled.div`
 export const Img = styled.img`
 	width: 200px;
 	height: 150px;
-	margin-top: 10%;
 	display: flex;
 	align-items: center;
+	@media only screen and (max-width: 700px) {
+		width: 100px;
+		height: 75px;
+	}
 `
 
 export const ButtonProduct = styled.button`
@@ -103,4 +106,18 @@ export const DivProduct = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+`
+
+export const DivFila = styled.div`
+	display: flex;
+	flex-direction: column;
+`
+
+export const H1 = styled.h1`
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: -40px;
+	background-color: aliceblue;
+	@media only screen and (max-width: 700px) {
+	}
 `
