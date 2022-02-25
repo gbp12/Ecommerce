@@ -75,6 +75,11 @@ export const ButtonCarrito = styled.button`
 		color: #e9725a;
 		background-color: #fff;
 	}
+	@media only screen and (max-width: 600px) {
+		width: 80px;
+		height: 25px;
+		margin-right: 0;
+	}
 `
 
 export const StyledLi = styled.div`
@@ -92,6 +97,13 @@ export const StyledLi = styled.div`
 
 export const H3 = styled.h3`
 	margin-right: 20px;
+	@media only screen and (max-width: 800px) {
+		font-size: 10px;
+	}
+	@media only screen and (max-width: 500px) {
+		font-size: 6px;
+		margin-right: 0px;
+	}
 `
 
 export const DivLista = styled.div`
@@ -118,7 +130,7 @@ export const H1 = styled.h1`
 	margin-top: 60px;
 	margin-bottom: -40px;
 	background-color: #d1e2ff;
-	padding: 10px;
+	padding: 1vh;
 	@media only screen and (max-width: 700px) {
 		font-size: larger;
 	}
