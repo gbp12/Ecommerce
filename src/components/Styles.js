@@ -75,7 +75,7 @@ export const ButtonCarrito = styled.button`
 		color: #e9725a;
 		background-color: #fff;
 	}
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 500px) {
 		width: 80px;
 		height: 25px;
 		margin-right: 0;
@@ -100,9 +100,10 @@ export const H3 = styled.h3`
 	@media only screen and (max-width: 800px) {
 		font-size: 10px;
 	}
-	@media only screen and (max-width: 500px) {
-		font-size: 6px;
+	@media only screen and (max-width: 400px) {
+		font-size: 8px;
 		margin-right: 0px;
+		margin-top: -12px;
 	}
 `
 
@@ -131,7 +132,21 @@ export const H1 = styled.h1`
 	margin-bottom: -40px;
 	background-color: #d1e2ff;
 	padding: 1vh;
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 400px) {
 		font-size: larger;
+	}
+`
+
+export const Complete = styled.div`
+	background-color: aliceblue;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	width: 300px;
+	padding: 5px 10px 5px 15px;
+	border: solid 1px #eee;
+	box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+	:hover {
+		background-color: #fff;
 	}
 `

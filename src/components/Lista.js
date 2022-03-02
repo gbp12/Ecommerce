@@ -1,4 +1,4 @@
-import { StyledLi, DivLista, ButtonDelete } from "./Styles"
+import { StyledLi, DivLista, ButtonDelete, Complete } from "./Styles"
 import { useSelector, useDispatch } from "react-redux"
 import { VoidLista } from "./VoidList"
 
@@ -27,6 +27,12 @@ export const Lista = () => {
 						</ButtonDelete>
 					</StyledLi>
 				))}
+				<Complete
+					onClick={() => {
+						dispatch({ type: "completed" })
+					}}>
+					Completar Compra
+				</Complete>
 			</div>
 		)
 	}

@@ -5,6 +5,7 @@ const initialState = {
 	carro: [],
 	esVisible: false,
 	contadorProductos: 0,
+	completed: false,
 }
 export const visibleReducer = (state = false, action) => {
 	switch (action.type) {
@@ -39,6 +40,11 @@ export const carroReducer = (state = [], action) => {
 			})
 			return newCarro
 		}
+
+		case "completed": {
+			return []
+		}
+
 		default:
 			return state
 	}
@@ -59,8 +65,23 @@ export const contadorReducer = (state = {}, action) => {
 				}
 			})
 			return (newContador -= restante)
+
+		case "completed": {
+			return 0
+		}
 	}
 	return state.contadorProductos
+}
+
+export const completeChanger = (state = false, action) => {
+	switch (action) {
+		case "completed":
+			state = true
+			return state
+
+		default:
+			return state
+	}
 }
 export const reducer = (state = initialState, action) => {
 	return {
@@ -69,5 +90,6 @@ export const reducer = (state = initialState, action) => {
 		carro: carroReducer(state.carro, action),
 		esVisible: visibleReducer(state.esVisible, action),
 		contadorProductos: contadorReducer(state, action),
+		completed: completeChanger(state.completed),
 	}
 }
