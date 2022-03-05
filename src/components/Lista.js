@@ -30,6 +30,7 @@ export const Lista = () => {
 				<Complete
 					onClick={() => {
 						dispatch({ type: "completed" })
+						alert("Tu compra se ha realizado correctamente.")
 					}}>
 					Completar Compra
 				</Complete>
