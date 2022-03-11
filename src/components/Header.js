@@ -1,8 +1,8 @@
 import React from "react"
 import { useDispatch } from "react-redux"
 import { BubbleAlert } from "./Bubble"
-
 import { StyledHeader, ButtonCarrito } from "./Styles"
+
 export const Header = () => {
 	const dispatch = useDispatch()
 	return (

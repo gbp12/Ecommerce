@@ -85,8 +85,8 @@ export const completeChanger = (state = false, action) => {
 }
 export const reducer = (state = initialState, action) => {
 	return {
-		verduras: initialState.verduras,
-		frutas: initialState.frutas,
+		verduras: state.verduras,
+		frutas: state.frutas,
 		carro: carroReducer(state.carro, action),
 		esVisible: visibleReducer(state.esVisible, action),
 		contadorProductos: contadorReducer(state, action),
