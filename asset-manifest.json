@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/ecommerce/static/css/main.93a0497a.css",
-    "main.js": "/ecommerce/static/js/main.1c137b31.js",
+    "main.css": "/ecommerce/static/css/main.13ed976a.css",
+    "main.js": "/ecommerce/static/js/main.dbfd9ff1.js",
     "static/js/787.750b04f3.chunk.js": "/ecommerce/static/js/787.750b04f3.chunk.js",
+    "static/media/tomate.png": "/ecommerce/static/media/tomate.bc97c7a4a6b8c6ab67bc.png",
+    "static/media/manzana.png": "/ecommerce/static/media/manzana.366b4bf6ebaa5a0878b1.png",
+    "static/media/alcachofa.png": "/ecommerce/static/media/alcachofa.e4d890cfbf285f79d17a.png",
+    "static/media/platano.png": "/ecommerce/static/media/platano.f8de91c42244e9a690b0.png",
+    "static/media/papas.png": "/ecommerce/static/media/papas.b53916728eb89b66e4a2.png",
+    "static/media/pera.png": "/ecommerce/static/media/pera.33e984fae4584c948552.png",
+    "static/media/kiwi.png": "/ecommerce/static/media/kiwi.3746523fc3a75341c969.png",
+    "static/media/esparrago.png": "/ecommerce/static/media/esparrago.4709710a8e4cb251949d.png",
     "index.html": "/ecommerce/index.html",
-    "main.93a0497a.css.map": "/ecommerce/static/css/main.93a0497a.css.map",
-    "main.1c137b31.js.map": "/ecommerce/static/js/main.1c137b31.js.map",
+    "main.13ed976a.css.map": "/ecommerce/static/css/main.13ed976a.css.map",
+    "main.dbfd9ff1.js.map": "/ecommerce/static/js/main.dbfd9ff1.js.map",
     "787.750b04f3.chunk.js.map": "/ecommerce/static/js/787.750b04f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93a0497a.css",
-    "static/js/main.1c137b31.js"
+    "static/css/main.13ed976a.css",
+    "static/js/main.dbfd9ff1.js"
   ]
 }
