@@ -2,7 +2,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { H1, DivProduct, ButtonProduct, Img, StyledSection, DivFila } from "./Styles"
 
-export const Section = () => {
+export const Sections = () => {
 	const dispatch = useDispatch()
 	const state = useSelector((x) => x)
 	return (
