@@ -40,6 +40,7 @@ export const ButtonProduct = styled.button`
 	width: 80px;
 	border-radius: 5px;
 	border: 1px solid #0a3e;
+	height: 35px;
 	:hover {
 		color: #0a3e;
 		background-color: #fff;
