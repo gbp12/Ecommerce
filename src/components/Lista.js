@@ -37,5 +37,9 @@ export const Lista = () => {
 			</div>
 		)
 	}
-	return <DivLista>{state.contadorProductos !== 0 ? <Element /> : <VoidLista />}</DivLista>
+	return (
+		<DivLista className="animate__animated animate__fadeInDown animate__faster">
+			{state.contadorProductos !== 0 ? <Element /> : <VoidLista />}
+		</DivLista>
+	)
 }

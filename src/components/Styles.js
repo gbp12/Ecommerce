@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import "animate.css"
 export const StyledHeader = styled.div`
 	background-color: green;
 	color: #fff;
@@ -109,6 +110,7 @@ export const H3 = styled.h3`
 `
 
 export const DivLista = styled.div`
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	position: fixed;
 	right: 0px;
 	top: 63px;
