@@ -19,11 +19,11 @@ export const StyledSection = styled.div`
 `
 
 export const Img = styled.img`
-	width: 200px;
+	width: 25vh;
 	height: 150px;
 	display: flex;
 	align-items: center;
-	@media only screen and (max-width: 800px) {
+	@media only screen and (max-width: 900px) {
 		width: 100px;
 		height: 75px;
 	}
